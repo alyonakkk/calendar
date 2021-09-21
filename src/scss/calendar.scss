@@ -1,0 +1,151 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+
+    &__tr {
+        display: flex;
+        width: 100%;
+    }
+}
+
+.td {
+    @include scrollbar-style();
+
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: calc(100% * (143 / 1000));
+    height: 120px;
+    overflow-y: auto;
+
+    font-size: 14px;
+
+    border: 1px solid $dark-200;
+
+    cursor: pointer;
+
+    @media screen and (max-width: 992px) {
+        height: 110px;
+
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 100px;
+
+        font-size: 11px;
+    }
+
+    @media screen and (max-width: 576px) {
+        height: 80px;
+
+        font-size: 10px;
+    }
+
+    &:hover {
+        background-color: $neutral-100;
+    }
+
+    &__active {
+        box-shadow: 0px 0px 10px 2px $blue-300;
+
+        &:hover {
+            background-color: $light-100;
+        }
+    }
+
+    &__date,
+    &__names {
+        word-wrap: break-word;
+        color: $dark-100;
+    }
+
+    &__title,
+    &__description {
+        word-wrap: break-word;
+        color: $dark-200;
+    }
+
+    &__td-event {
+        background-color: $blue-100;
+
+        &:hover {
+            background-color: $blue-200;
+            box-shadow: none;
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+            background-color: $light-100;
+        }
+    }
+
+    &__td-event-click {
+        &:hover {
+            background-color: $blue-100;
+            box-shadow: 0px 0px 10px 2px $blue-300;
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+            background-color: $neutral-200;
+        }
+    }
+}
+
+.cell-popup {
+    padding: 12px;
+
+    position: absolute;
+
+    flex-direction: column;
+    gap: 24px;
+    width: 290px;
+    height: auto;
+
+    background-color: $light-100;
+    filter: drop-shadow(0px 0px 7px $shadow);
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 9px;
+        left: -14px;
+
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 14px solid $light-100;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__input {
+        @include input-style();
+    }
+
+    &__input-invalid {
+        @include invalid-input-style();
+    }
+
+    &__textarea {
+        @include input-style();
+
+        width: 266px;
+        height: 125px;
+
+        resize: none;
+    }
+
+    &__btn {
+        @include extra-button-style();
+    }
+
+    &__close {
+        @include close-style();
+    }
+}

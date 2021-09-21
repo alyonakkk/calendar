@@ -1,0 +1,114 @@
+@mixin extra-button-style() {
+    padding: 2px 6px;
+
+    color: $dark-200;
+    font-size: 12px;
+
+    background-color: $light-100;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 1px 1px $shadow;
+
+    cursor: pointer;
+
+    &:hover {
+        color: $light-100;
+
+        background-color: $dark-100;
+    }
+
+    &:active {
+        color: $light-100;
+
+        background-color: $neutral-200;
+    }
+
+    &:disabled {
+        color: $neutral-200;
+
+        background-color: $light-100;
+    }
+}
+
+@mixin input-style() {
+    padding: 5px 12px;
+
+    border: 1px solid $neutral-200;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 1px 2px $shadow;
+
+    outline: none;
+
+    &::placeholder {
+        color: $neutral-200;
+    }
+
+    &:focus {
+        border: 1px solid $blue-200;
+
+        &::placeholder {
+            visibility: hidden;
+        }
+    }
+
+    &:disabled {
+        color: $neutral-200;
+
+        background-color: $neutral-100;
+        box-shadow: none;
+    }
+}
+
+@mixin invalid-input-style() {
+    border: 1px solid $red-100;
+
+    &::placeholder {
+        color: $red-100;
+    }
+}
+
+@mixin close-style() {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 12px;
+    height: 12px;
+
+    mask: url("../img/close.svg");
+    background-color: $dark-100;
+
+    cursor: pointer;
+}
+
+@mixin scrollbar-style() {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $neutral-200;
+        border-radius: 20px;
+    }
+}
+
+@mixin window-style() {
+    background-color: $light-100;
+    filter: drop-shadow(0px 0px 7px $shadow);
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: -12px;
+        left: 23px;
+
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 14px solid $light-100;
+    }
+}

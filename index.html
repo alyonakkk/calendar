@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__actions actions-header">
+            <div class="actions-header__btn-wrapper">
+                <button class="actions-header__btn js-quick-add">Добавить</button>
+                
+                <div class="actions-header__popup popup js-quick-popup">
+                    <div class="popup__close js-close-quick-popup"></div>
+    
+                    <form class="popup__form" action="#">
+                        <input class="popup__input js-popup-input" type="text" placeholder="18 января, др, котейка">
+                        <div class="popup__btn js-quick-create">Создать</div>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="actions-header__btn-wrapper">
+                <button class="actions-header__btn js-reload">Обновить</button>
+            </div>
+        </div>
+    
+        <div class="header__search search">
+            <form class="search__form" action="#">
+                <input class="search__input js-search-input" type="text" placeholder="Введите событие или дату">
+                <div class="search__close js-search-close"></div>
+            </form>
+    
+            <div class="search__search-list search-list js-search-list-wrap">
+                <ul class="search-list__list js-search-list">
+    
+                </ul>
+    
+                <template id="search-item">
+                    <li class="search-list__item js-search-item">
+                        <p class="search-list__event js-search-list-event"></p>
+                        <p class="search-list__date js-search-list-date"></p>
+                    </li>
+                </template>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="main__actions actions-main">
+            <div class="actions-main__nav nav">
+                <div class="nav__btn-wrapper js-nav-prev">
+                    <div class="nav__btn nav__prev"></div>
+                </div>
+    
+                <div class="nav__date-wrapper">
+                    <div class="nav__date js-nav-date"></div>
+                </div>
+    
+                <div class="nav__btn-wrapper js-nav-next">
+                    <div class="nav__btn nav__next"></div>
+                </div>
+            </div>
+
+            <div class="actions-main__today js-nav-today">Сегодня</div>
+        </section>
+
+        <table class="main__table table js-table">
+            <tbody class="table__tbody js-tbody">
+
+                <div class="table__cell-popup cell-popup js-cell-popup">
+                    <div class="cell-popup__close js-cell-popup-close"></div>
+                    <form class="cell-popup__form js-cell-form" action="#">
+                        <div class="cell-popup__wrapper">
+                            <input class="cell-popup__input js-cell-popup-event" type="text" placeholder="Событие">
+                            <input class="cell-popup__input js-cell-popup-date" type="text" disabled>
+                            <input class="cell-popup__input js-cell-popup-names" type="text" value="" placeholder="Имена участников">
+                        </div>
+
+                        <div class="cell-popup__wrapper">
+                            <textarea class="cell-popup__textarea js-cell-popup-description" value="" placeholder="Описание"></textarea>
+                            
+                            <div class="cell-popup__btns-wrapper">
+                                <button class="cell-popup__btn js-cell-popup-btn js-cell-popup-create">Готово</button>
+                                <button class="cell-popup__btn js-cell-popup-btn js-cell-popup-remove" type="button">Удалить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </tbody>
+
+            <template id="cell">
+                <td class="table__td td js-cell">
+                    <p class="td__date js-cell-date"></p>
+                    <p class="td__title js-cell-title"></p>
+                    <p class="td__names js-cell-names"></p>
+                    <p class="td__description js-cell-description"></p>
+                </td>
+            </template>
+        </table>
+    </main>
+
+    <script src="dist/js/script.min.js"></script>
+</body>
+
+</html>

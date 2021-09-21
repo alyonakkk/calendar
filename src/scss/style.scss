@@ -1,0 +1,100 @@
+@import "var.scss";
+@import "mixins.scss";
+@import "header.scss";
+@import "calendar.scss";
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    min-width: 576px;
+}
+
+
+.main {
+    padding: 12px calc(100% *(220 / 1440));
+
+    @media screen and (max-width: 992px){
+        padding: 12px 20px;
+    }
+
+    @media screen and (max-width: 576px){
+        padding: 10px;
+    }
+}
+
+.actions-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__today {
+        @include extra-button-style();
+    }
+}
+
+.nav {
+    padding: 12px 0;
+
+    display: flex;
+    gap: 24px;
+
+    &__btn-wrapper {
+        padding: 4px 10px;
+
+        box-shadow: inset 0px 0px 1px 1px $shadow;
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: $dark-100;
+        }
+
+        &:active {
+            background-color: $neutral-200;
+        }
+
+        &:disabled {
+            background-color: $light-100;
+        }
+
+        &:hover .nav__btn {
+            background-color: $light-100;
+        }
+
+        &:active .nav__btn {
+            background-color: $light-100;
+        }
+
+        &:disabled .nav__btn {
+            background-color: $neutral-200;
+        }
+    }
+
+    &__btn {
+        width: 12px;
+        height: 16px;
+
+        mask: url("../img/arrow.svg");
+        background-color: $dark-100;
+    }
+
+    &__prev {
+        transform: rotate(180deg);
+    }
+
+    &__date {
+        width: 125px;
+
+        color: $dark-200;
+        font-size: 18px;
+        text-align: center;
+    }
+}
